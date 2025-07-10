@@ -1,4 +1,5 @@
-CLASS CalculatorModel
+    CLASS CalculatorModel
+    
     VAR Memory = 0
     VAR HasMemory = false
 
