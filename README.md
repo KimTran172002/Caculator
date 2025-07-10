@@ -38,3 +38,4 @@ Algorithm for Caculator
     METHOD Precedence(op)
         RETURN 1 for +, -
         RETURN 2 for *, /
+<img width="428" height="676" alt="image" src="https://github.com/user-attachments/assets/f088b718-3047-4bb6-9ebe-9052a0ca3166" />
