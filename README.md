@@ -1,3 +1,5 @@
+Algorithm for Caculator
+
     CLASS CalculatorModel
     
     VAR Memory = 0
