@@ -38,6 +38,30 @@ namespace Calculator.ViewModel
             InputCommand = new RelayCommand(param => Expression += param?.ToString());
             ClearCommand = new RelayCommand(_ => { Expression = ""; Result = ""; });
             CalculateCommand = new RelayCommand(_ => Result = _model.Evaluate(Expression));
+            MemorySaveCommand = new RelayCommand(_ =>
+            {
+                if (double.TryParse(Result, out var value))
+                    _model.SaveToMemory(value);
+            });
+            MemoryRecallCommand = new RelayCommand(_ =>
+            {
+                //if (!string.IsNullOrWhiteSpace(Result) && double.TryParse(Result, out var value) && value == _model.Memory)
+                //    Expression += _model.Memory.ToString();
+                if (_model.HasMemory)
+                    Expression += _model.Memory.ToString();
+            });
+            CopyCommand = new RelayCommand(_ => Clipboard.SetText(Expression));
+            PasteCommand = new RelayCommand(_ =>
+            {
+                var clipboard = Clipboard.GetText();
+                if (!string.IsNullOrWhiteSpace(clipboard))
+                    Expression += clipboard;
+            });
+            BackspaceCommand = new RelayCommand(_ =>
+            {
+                if (!string.IsNullOrEmpty(Expression))
+                    Expression = Expression.Substring(0, Expression.Length - 1);
+            });
 
         }
 
