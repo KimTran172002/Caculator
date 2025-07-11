@@ -59,6 +59,29 @@ namespace Calculator.Model
                     continue;
                 }
 
+                
+                if ((c == '-' && (i == 0 || infix[i - 1] == '(' || IsOperator(infix[i - 1]))) || char.IsDigit(c))
+                {
+                    string number = "";
+
+                    
+                    if (c == '-')
+                    {
+                        number += '-';
+                        i++;
+                    }
+
+                    
+                    while (i < infix.Length && (char.IsDigit(infix[i]) || infix[i] == '.'))
+                    {
+                        number += infix[i];
+                        i++;
+                    }
+
+                    output.Add(number);
+                    continue;
+                }
+
                 if (char.IsDigit(c) || c == '.')
                 {
                     string number = "";
