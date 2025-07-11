@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Calculator.ViewModel;
+using System.Windows;
 
 namespace Calculator
 {
@@ -7,6 +8,8 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
+            // assign Viewmodel as Datacontext
+            this.DataContext = new CalculatorViewModel();
         }
     }
 }
